@@ -26,8 +26,9 @@ Route::middleware([
     Route::get('/blog-category-create',[BlogCategoryController::class,'create'])->name('blog-categories.create');
     Route::post('/blog-category-store',[BlogCategoryController::class,'store'])->name('blog-categories.store');
     Route::get('/blog-category-manage',[BlogCategoryController::class,'manage'])->name('blog-categories.manage');
-    Route::post('/blog-category-update',[BlogCategoryController::class,'update'])->name('blog-categories.update');
-    Route::get('/blog-category-/{id}',[BlogCategoryController::class,'edit'])->name('blog-categories.edit');
+    Route::get('/blog-category-edit/{id}',[BlogCategoryController::class,'edit'])->name('blog-categories.edit');
+    Route::post('/blog-category-update/{id}',[BlogCategoryController::class,'update'])->name('blog-categories.update');
+
     Route::get('/blog-category-delete/{id}',[BlogCategoryController::class,'delete'])->name('blog-categories.delete');
 
     Route::get('/blog-create',[BlogController::class,'create'])->name('blog.create');

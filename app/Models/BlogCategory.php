@@ -25,4 +25,15 @@ class BlogCategory extends Model
 
         }
 
+        public static function updateCategory($request,$id){
+
+            self::$blogCategory  =  BlogCategory::find($id);
+            self::$blogCategory->name  = $request->name;
+            self::$blogCategory->image  = $request->image;
+            self::$blogCategory->email = $request->email;
+            self::$blogCategory->description  = $request->description;
+            self::$blogCategory->status  = $request->status;
+
+            self::$blogCategory->save();
+        }
 }

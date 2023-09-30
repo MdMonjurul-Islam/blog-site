@@ -28,12 +28,19 @@ class BlogCategoryController extends Controller
 
         ]);
     }
-    public function update()
+    public function update(Request $request,$id)
     {
+        BlogCategory::updateCategory($request,$id);
 
+        return redirect()->route('blog-categories.manage')->with('success','Product updated SUCCESSFULLY.');
     }
     public function edit($id)
     {
+          $this->blogCategory = BlogCategory::find($id);
+         return view ('backend.blog-category.edit',[
+
+             'blogCategory' => $this->blogCategory
+         ]);
 
     }
     public function delete($id)
